@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - AI-Powered Heart Health Dashboard{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section py-5 position-relative overflow-hidden">
+    <div class="container py-5 mt-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 animate-up">
+                <div class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4">
+                    <i class="fas fa-microchip me-2"></i> Next-Gen Medical AI
+                </div>
+                <h1 class="display-3 fw-bold mb-4">
+                    Pioneering <span class="text-gradient">Heart Health</span><br>with Predictive AI
+                </h1>
+                <p class="lead text-secondary mb-5 opacity-90">
+                    Harnessing high-fidelity diagnostics and machine learning to secure your cardiovascular future.
+                    Real-time analysis, evidence-based insights.
+                </p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ url_for('prediction') }}" class="btn btn-primary btn-lg px-5 py-3 shadow-lg">
+                        Start Diagnostic Registry <i class="fas fa-rocket ms-2"></i>
+                    </a>
+                    <a href="{{ url_for('eda') }}" class="btn btn-outline-secondary btn-lg px-5 py-3">
+                        View Analytics <i class="fas fa-chart-line ms-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 animate-up">
+                <div class="position-relative">
+                    <div class="position-absolute top-50 start-50 translate-middle bg-primary opacity-10 rounded-circle blur-3xl"
+                        style="width: 400px; height: 400px;"></div>
+                    <div class="card glass-card border-0 shadow-2xl p-2 rounded-4">
+                        <img src="https://images.unsplash.com/photo-1628595351029-c2bf17511435?auto=format&fit=crop&q=80&w=1000"
+                            class="card-img-top rounded-4 shadow-sm" alt="Heart Health Innovation">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="stats-section py-5 bg-card-bg">
+    <div class="container px-4">
+        <div class="row g-4 justify-content-center text-center">
+            <div class="col-6 col-md-3">
+                <h2 class="fw-bold mb-0 text-gradient">70k+</h2>
+                <p class="text-secondary small fw-bold text-uppercase tracking-wider">Clinical Records</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h2 class="fw-bold mb-0 text-gradient">73.2%</h2>
+                <p class="text-secondary small fw-bold text-uppercase tracking-wider">Model Precision</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h2 class="fw-bold mb-0 text-gradient">Real-Time</h2>
+                <p class="text-secondary small fw-bold text-uppercase tracking-wider">Analysis Latency</p>
+            </div>
+            <div class="col-6 col-md-3">
+                <h2 class="fw-bold mb-0 text-gradient">Secure</h2>
+                <p class="text-secondary small fw-bold text-uppercase tracking-wider">HIPAA Compliant</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features section -->
+<section class="features-section py-5">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h5 class="text-primary fw-bold text-uppercase">Our Capabilities</h5>
+            <h2 class="display-5 fw-bold">Integrated Diagnostic Ecosystem</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm glass-card">
+                    <div class="bg-primary bg-opacity-10 p-3 rounded-4 mb-4 d-inline-block">
+                        <i class="fas fa-vial text-primary fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Forensic EDA</h4>
+                    <p class="text-secondary mb-0">Deep-dive into cardiovascular datasets with interactive forensics and
+                        visualization engines.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm glass-card">
+                    <div class="bg-success bg-opacity-10 p-3 rounded-4 mb-4 d-inline-block">
+                        <i class="fas fa-brain text-success fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Neural Classification</h4>
+                    <p class="text-secondary mb-0">High-fidelity disease classification powered by state-of-the-art
+                        random forest architectures.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm glass-card">
+                    <div class="bg-info bg-opacity-10 p-3 rounded-4 mb-4 d-inline-block">
+                        <i class="fas fa-shield-heart text-info fs-3"></i>
+                    </div>
+                    <h4 class="fw-bold mb-3">Diagnostic Precision</h4>
+                    <p class="text-secondary mb-0">Validate model integrity with ROC curves and comprehensive confusion
+                        matrix audits.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 mb-5">
+    <div class="container">
+        <div class="card bg-primary p-5 border-0 rounded-4 text-center glass-card shadow-lg text-white">
+            <h2 class="display-6 fw-bold mb-4">Ready to Prioritize Your Health?</h2>
+            <p class="lead mb-5 opacity-75">Start your diagnostic journey today and join thousands taking control of
+                their heart health.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="{{ url_for('prediction') }}" class="btn btn-light btn-lg px-5 fw-bold text-primary">Take the
+                    Test Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - About the Mission{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row align-items-center g-5">
+        <div class="col-lg-6 animate-up">
+            <div class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4 fw-bold">
+                <i class="fas fa-shield-heart me-2"></i> Vision 2026
+            </div>
+            <h1 class="display-4 fw-bold mb-4">The Convergence of <span class="text-gradient">Medicine & Data</span>
+            </h1>
+            <p class="lead text-secondary mb-4">
+                CardioCare was born from a simple yet powerful mission: to democratize advanced cardiovascular
+                diagnostics
+                through the power of accessible AI.
+            </p>
+            <div class="row g-4 mt-2">
+                <div class="col-sm-6">
+                    <div class="bg-card-bg p-3 rounded-4 border border-border-color shadow-sm glass-card">
+                        <i class="fas fa-microchip text-primary mb-3 fs-4"></i>
+                        <h6 class="fw-bold">Neural Engine</h6>
+                        <p class="small text-secondary mb-0">Random Forest & SVC Optimized models.</p>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="bg-card-bg p-3 rounded-4 border border-border-color shadow-sm glass-card">
+                        <i class="fas fa-vial text-success mb-3 fs-4"></i>
+                        <h6 class="fw-bold">Forensic Proof</h6>
+                        <p class="small text-secondary mb-0">Built on 70k validated clinical vitals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 animate-up">
+            <div class="card glass-card border-0 shadow-2xl p-2 rounded-5 overflow-hidden">
+                <img src="{{ url_for('static', filename='img/about_hero.png') }}" class="img-fluid rounded-4 shadow-sm"
+                    alt="Modern Medical AI Visualization">
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5 pt-5 g-4 text-center">
+        <div class="col-md-4 animate-up">
+            <i class="fas fa-heart-pulse text-gradient fs-1 mb-4"></i>
+            <h4 class="fw-bold mb-3">Patient-Centric</h4>
+            <p class="text-secondary">Designed to be intuitive for doctors and patients alike.</p>
+        </div>
+        <div class="col-md-4 animate-up">
+            <i class="fas fa-shield-alt text-gradient fs-1 mb-4"></i>
+            <h4 class="fw-bold mb-3">Enterprise Security</h4>
+            <p class="text-secondary">Your vitals never leave the localized registry infrastructure.</p>
+        </div>
+        <div class="col-md-4 animate-up">
+            <i class="fas fa-chart-line text-gradient fs-1 mb-4"></i>
+            <h4 class="fw-bold mb-3">Evolutionary AI</h4>
+            <p class="text-secondary">Continuous retraining cycles to improve clinical precision.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

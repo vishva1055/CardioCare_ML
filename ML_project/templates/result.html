@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - Diagnostic Result{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 animate-up">
+            <div class="result-container mb-5">
+                {% if prediction == 1 %}
+                <!-- High Risk Result -->
+                <div class="card border-0 shadow-lg overflow-hidden mb-5 glass-card">
+                    <div class="bg-danger bg-opacity-10 p-5 text-center border-bottom border-danger border-opacity-10">
+                        <div class="rounded-circle bg-danger bg-opacity-20 d-inline-flex align-items-center justify-content-center mb-3 pulse-danger"
+                            style="width: 80px; height: 80px;">
+                            <i class="fas fa-exclamation-triangle fs-1 text-danger"></i>
+                        </div>
+                        <h2 class="fw-bold text-danger mb-0">High Risk Factor Detected</h2>
+                        <p class="text-danger opacity-75 mt-2">Neural Analysis: POSITIVE</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <div class="row align-items-center mb-5">
+                            <div class="col-md-6">
+                                <h5 class="text-secondary small fw-bold text-uppercase mb-3">Diagnostic Confidence</h5>
+                                <h3 class="fw-bold mb-0">Positive Detection</h3>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <span class="display-4 fw-bold text-danger">{{ probability }}%</span>
+                                <p class="text-secondary small mb-0">Probability Index</p>
+                            </div>
+                        </div>
+
+                        <div class="probability-section mb-5">
+                            <div class="progress rounded-pill bg-danger bg-opacity-10" style="height: 12px;">
+                                <div class="progress-bar bg-danger" role="progressbar" style="width: {{ probability }}%"
+                                    aria-valuenow="{{ probability }}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 text-start">
+                            <div class="col-12">
+                                <div
+                                    class="p-4 rounded-4 bg-danger bg-opacity-5 border border-danger border-opacity-10">
+                                    <h5 class="fw-bold text-danger mb-3"><i
+                                            class="fas fa-hand-holding-medical me-2"></i>Actionable Steps:</h5>
+                                    <ul class="mb-0 text-secondary">
+                                        <li class="mb-2">Book an appointment with a cardiologist within 48 hours.</li>
+                                        <li class="mb-2">Initiate regular blood pressure monitoring (twice daily).</li>
+                                        <li class="mb-2">Review cardiovascular diet protocols (Low Sodium/DASH).</li>
+                                        <li>Maintain a log of any physical symptoms like shortness of breath.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <!-- Low Risk Result -->
+                <div class="card border-0 shadow-lg overflow-hidden mb-5 glass-card">
+                    <div
+                        class="bg-success bg-opacity-10 p-5 text-center border-bottom border-success border-opacity-10">
+                        <div class="rounded-circle bg-success bg-opacity-20 d-inline-flex align-items-center justify-content-center mb-3 pulse-success"
+                            style="width: 80px; height: 80px;">
+                            <i class="fas fa-shield-heart fs-1 text-success"></i>
+                        </div>
+                        <h2 class="fw-bold text-success mb-0">Optimal Condition Detected</h2>
+                        <p class="text-success opacity-75 mt-2">Neural Analysis: NEGATIVE</p>
+                    </div>
+                    <div class="card-body p-5">
+                        <div class="row align-items-center mb-5">
+                            <div class="col-md-6">
+                                <h5 class="text-secondary small fw-bold text-uppercase mb-3">Diagnostic Confidence</h5>
+                                <h3 class="fw-bold mb-0">Negative Detection</h3>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <span class="display-4 fw-bold text-success">{{ probability }}%</span>
+                                <p class="text-secondary small mb-0">Probability Index</p>
+                            </div>
+                        </div>
+
+                        <div class="probability-section mb-5">
+                            <div class="progress rounded-pill bg-success bg-opacity-10" style="height: 12px;">
+                                <div class="progress-bar bg-success" role="progressbar"
+                                    style="width: {{ probability }}%" aria-valuenow="{{ probability }}"
+                                    aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+
+                        <div class="row g-4 text-start">
+                            <div class="col-12">
+                                <div
+                                    class="p-4 rounded-4 bg-success bg-opacity-5 border border-success border-opacity-10">
+                                    <h5 class="fw-bold text-success mb-3"><i
+                                            class="fas fa-heart-circle-check me-2"></i>Preventive Care:</h5>
+                                    <ul class="mb-0 text-secondary">
+                                        <li class="mb-2">Maintain current activity levels (150 mins zone-2/week).</li>
+                                        <li class="mb-2">Continue heart-healthy nutritional habits.</li>
+                                        <li class="mb-1">Schedule a routine annual check-up to baseline vitals.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+
+                <div class="text-center">
+                    <a href="{{ url_for('prediction') }}" class="btn btn-primary btn-lg px-5 shadow-lg">New Analysis <i
+                            class="fas fa-rotate-right ms-2"></i></a>
+                    <a href="{{ url_for('index') }}" class="btn btn-link text-secondary mt-3 d-block">Return to
+                        Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

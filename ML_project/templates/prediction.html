@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - AI Diagnostics{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 animate-up">
+            <div class="card overflow-hidden border-0 shadow-lg glass-card">
+                <div class="card-header bg-primary text-white p-5 text-center border-0">
+                    <div class="rounded-circle bg-white bg-opacity-20 d-inline-flex align-items-center justify-content-center mb-3"
+                        style="width: 60px; height: 60px;">
+                        <i class="fas fa-notes-medical fs-3"></i>
+                    </div>
+                    <h2 class="fw-bold mb-0">Health Assessment</h2>
+                    <p class="opacity-75 mb-0 mt-2">Precision analysis through medical forensics</p>
+                </div>
+                <div class="card-body p-4 p-md-5">
+                    <form id="predictionForm" method="POST" action="{{ url_for('predict') }}">
+
+                        <div class="d-flex align-items-center mb-4">
+                            <h5 class="fw-bold mb-0 text-gradient">01. Biometric Data</h5>
+                            <div class="flex-grow-1 ms-3 border-bottom opacity-10"></div>
+                        </div>
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <label for="age" class="form-label fw-bold small text-accent">Age (Years)</label>
+                                <input type="number" class="form-control" id="age" name="age" placeholder="e.g. 45"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gender" class="form-label fw-bold small text-accent">Gender</label>
+                                <select class="form-select" id="gender" name="gender" required>
+                                    <option value="" selected disabled>Select Gender</option>
+                                    <option value="1">Female</option>
+                                    <option value="2">Male</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="height" class="form-label fw-bold small text-accent">Height (cm)</label>
+                                <input type="number" class="form-control" id="height" name="height"
+                                    placeholder="e.g. 170" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="weight" class="form-label fw-bold small text-accent">Weight (kg)</label>
+                                <input type="number" class="form-control" id="weight" name="weight"
+                                    placeholder="e.g. 70" required>
+                            </div>
+                            <div class="col-12">
+                                <div id="bmiDisplay" class="p-3 bg-primary bg-opacity-5 rounded-3 d-none animate-up">
+                                    <div class="d-flex align-items-center text-primary">
+                                        <i class="fas fa-info-circle me-2"></i>
+                                        <span class="small fw-bold">Live BMI Index: <span id="bmiValue">-</span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <h5 class="fw-bold mb-0 text-gradient">02. Clinical Vitals</h5>
+                            <div class="flex-grow-1 ms-3 border-bottom opacity-10"></div>
+                        </div>
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-6">
+                                <label for="ap_hi" class="form-label fw-bold small text-accent">Systolic
+                                    (ap_hi)</label>
+                                <input type="number" class="form-control" id="ap_hi" name="ap_hi" placeholder="e.g. 120"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="ap_lo" class="form-label fw-bold small text-accent">Diastolic
+                                    (ap_lo)</label>
+                                <input type="number" class="form-control" id="ap_lo" name="ap_lo" placeholder="e.g. 80"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="cholesterol"
+                                    class="form-label fw-bold small text-accent">Cholesterol</label>
+                                <select class="form-select" id="cholesterol" name="cholesterol" required>
+                                    <option value="" selected disabled>Select Level</option>
+                                    <option value="1">Normal</option>
+                                    <option value="2">High Risk</option>
+                                    <option value="3">Critical</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="gluc" class="form-label fw-bold small text-accent">Glucose</label>
+                                <select class="form-select" id="gluc" name="gluc" required>
+                                    <option value="" selected disabled>Select Level</option>
+                                    <option value="1">Normal</option>
+                                    <option value="2">High Risk</option>
+                                    <option value="3">Critical</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center mb-4">
+                            <h5 class="fw-bold mb-0 text-gradient">03. Lifestyle Context</h5>
+                            <div class="flex-grow-1 ms-3 border-bottom opacity-10"></div>
+                        </div>
+
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-4">
+                                <div
+                                    class="form-check form-switch p-3 card border-0 bg-opacity-10 bg-secondary d-flex align-items-center justify-content-between h-100">
+                                    <label class="form-check-label fw-bold small mb-0" for="smoke">Smoking</label>
+                                    <input class="form-check-input ms-0" type="checkbox" id="smoke" name="smoke"
+                                        value="1">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div
+                                    class="form-check form-switch p-3 card border-0 bg-opacity-10 bg-secondary d-flex align-items-center justify-content-between h-100">
+                                    <label class="form-check-label fw-bold small mb-0" for="alco">Alcohol</label>
+                                    <input class="form-check-input ms-0" type="checkbox" id="alco" name="alco"
+                                        value="1">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div
+                                    class="form-check form-switch p-3 card border-0 bg-opacity-10 bg-secondary d-flex align-items-center justify-content-between h-100">
+                                    <label class="form-check-label fw-bold small mb-0" for="active">Active Life</label>
+                                    <input class="form-check-input ms-0" type="checkbox" id="active" name="active"
+                                        value="1" checked>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-grid pt-3">
+                            <button type="submit" class="btn btn-primary btn-lg fw-bold py-3 shadow-lg" id="submitBtn">
+                                Run Diagnostic Engine <i class="fas fa-chevron-right ms-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // BMI Logic
+    const hIn = document.getElementById('height');
+    const wIn = document.getElementById('weight');
+    const bD = document.getElementById('bmiDisplay');
+    const bV = document.getElementById('bmiValue');
+
+    function calc() {
+        const h = parseFloat(hIn.value) / 100;
+        const w = parseFloat(wIn.value);
+        if (h > 0 && w > 0) {
+            const bmi = w / (h * h);
+            bV.textContent = bmi.toFixed(2);
+            bD.classList.remove('d-none');
+        } else {
+            bD.classList.add('d-none');
+        }
+    }
+    hIn.addEventListener('input', calc);
+    wIn.addEventListener('input', calc);
+
+    // Form Loading UI
+    document.getElementById('predictionForm').addEventListener('submit', function () {
+        const btn = document.getElementById('submitBtn');
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Analyzing Vitals...';
+        btn.disabled = true;
+    });
+</script>
+{% endblock %}

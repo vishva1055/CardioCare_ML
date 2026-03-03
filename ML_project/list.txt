@@ -1,0 +1,26 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 0203-54A4
+
+ Directory of c:\SEM-6\ML LAB\ML_project
+
+03-03-2026  07:49 PM    <DIR>          .
+03-03-2026  12:24 PM    <DIR>          ..
+03-03-2026  07:46 PM             3,149 app.py
+18-02-2026  12:04 AM         9,385,013 cardio_model.pkl
+04-12-2025  10:03 AM         2,941,524 cardio_train.csv
+03-03-2026  07:22 PM               817 copy_check.py
+03-03-2026  07:11 PM             1,073 copy_fix.py
+03-03-2026  07:13 PM               818 copy_fix_v2.py
+03-03-2026  07:14 PM             1,255 copy_images.py
+03-03-2026  07:41 PM             1,192 fix_scaler.py
+03-03-2026  04:49 PM             3,499 generate_graphs.py
+03-03-2026  07:49 PM                 0 list.txt
+03-03-2026  12:23 PM           722,842 project.ipynb
+03-03-2026  04:51 PM             1,721 quick_graphs.py
+03-03-2026  04:23 PM                65 requirements.txt
+03-03-2026  07:48 PM                76 run_scaler.bat
+03-03-2026  01:24 PM    <DIR>          static
+03-03-2026  12:53 PM    <DIR>          templates
+03-03-2026  07:46 PM                85 test_py.py
+              15 File(s)     13,063,129 bytes
+               4 Dir(s)   1,543,340,032 bytes free

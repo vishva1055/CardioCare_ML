@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - Exploratory Data Analysis{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="card glass-card border-0 shadow-lg p-5 text-center mb-5 animate-up">
+        <h5 class="text-primary fw-bold text-uppercase small tracking-widest mb-2">Dataset Forensics</h5>
+        <h1 class="display-4 fw-bold mb-3">Forensic <span class="text-gradient">Data Exploration</span></h1>
+        <p class="lead text-secondary opacity-90 mx-auto" style="max-width: 700px;">
+            Deconstructing the clinical metrics of our 70,000 patient dataset to uncover deep physiological patterns.
+        </p>
+    </div>
+
+    <!-- Metric Grid -->
+    <div class="row mb-5 g-4">
+        <div class="col-md-4 animate-up">
+            <div class="card h-100 glass-card border-0 shadow-sm p-4 text-center">
+                <div class="rounded-circle bg-primary bg-opacity-10 d-inline-flex align-items-center justify-content-center mb-3"
+                    style="width: 50px; height: 50px;">
+                    <i class="fas fa-users text-primary"></i>
+                </div>
+                <h6 class="text-muted fw-bold text-uppercase small mb-1">Total Observations</h6>
+                <h3 class="fw-bold mb-2">70,000+</h3>
+                <p class="text-secondary small mb-0">High-fidelity population sample from Kaggle repositories.</p>
+            </div>
+        </div>
+        <div class="col-md-4 animate-up">
+            <div class="card h-100 glass-card border-0 shadow-sm p-4 text-center">
+                <div class="rounded-circle bg-success bg-opacity-10 d-inline-flex align-items-center justify-content-center mb-3"
+                    style="width: 50px; height: 50px;">
+                    <i class="fas fa-tags text-success"></i>
+                </div>
+                <h6 class="text-muted fw-bold text-uppercase small mb-1">Feature Dimensions</h6>
+                <h3 class="fw-bold mb-2">12 Metrics</h3>
+                <p class="text-secondary small mb-0">Biometrics, vitals, and lifestyle context analysis.</p>
+            </div>
+        </div>
+        <div class="col-md-4 animate-up">
+            <div class="card h-100 glass-card border-0 shadow-sm p-4 text-center">
+                <div class="rounded-circle bg-info bg-opacity-10 d-inline-flex align-items-center justify-content-center mb-3"
+                    style="width: 50px; height: 50px;">
+                    <i class="fas fa-microscope text-info"></i>
+                </div>
+                <h6 class="text-muted fw-bold text-uppercase small mb-1">Target Clarity</h6>
+                <h3 class="fw-bold mb-2">Binary Class</h3>
+                <p class="text-secondary small mb-0">Balanced labels for cardiovascular presence detection.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visualizations Section -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-6 animate-up">
+            <div class="card h-100 border-0 shadow-sm glass-card overflow-hidden">
+                <div
+                    class="card-header bg-transparent border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Age Distribution</h5>
+                    <span class="badge bg-primary bg-opacity-10 text-primary">Demographics</span>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div
+                        class="visualization-placeholder rounded-4 overflow-hidden border border-border-color bg-light bg-opacity-5">
+                        <img src="{{ url_for('static', filename='img/age_dist.png') }}" alt="Age Distribution Gallery"
+                            class="img-fluid"
+                            onerror="this.src='https://placehold.co/600x400/020617/cbd5e1?text=Initializing+Vitals...'; this.parentNode.classList.add('animate-pulse');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 animate-up">
+            <div class="card h-100 border-0 shadow-sm glass-card overflow-hidden">
+                <div
+                    class="card-header bg-transparent border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Blood Pressure Analysis</h5>
+                    <span class="badge bg-secondary bg-opacity-10 text-secondary">Clinical Vitals</span>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div
+                        class="visualization-placeholder rounded-4 overflow-hidden border border-border-color bg-light bg-opacity-5">
+                        <img src="{{ url_for('static', filename='img/bp_dist.png') }}" alt="Blood Pressure Trends"
+                            class="img-fluid"
+                            onerror="this.src='https://placehold.co/600x400/020617/cbd5e1?text=Awaiting+Clinical+Data...'; this.parentNode.classList.add('animate-pulse');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 animate-up">
+            <div class="card border-0 shadow-sm glass-card overflow-hidden">
+                <div
+                    class="card-header bg-transparent border-0 pt-4 px-4 d-flex justify-content-between align-items-center">
+                    <h5 class="fw-bold mb-0">Correlation Heatmap</h5>
+                    <span class="badge bg-accent-vibrant bg-opacity-10" style="color: var(--accent-vibrant)">System
+                        Interconnectivity</span>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div
+                        class="visualization-placeholder rounded-4 overflow-hidden border border-border-color bg-light bg-opacity-5">
+                        <img src="{{ url_for('static', filename='img/heatmap.png') }}" alt="Correlation Matrix"
+                            class="img-fluid" style="max-height: 500px;"
+                            onerror="this.src='https://placehold.co/1200x500/020617/cbd5e1?text=Computing+Neural+Correlations...'; this.parentNode.classList.add('animate-pulse');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center animate-up mt-5">
+        <a href="{{ url_for('prediction') }}" class="btn btn-primary btn-lg px-5 shadow-lg">
+            Proceed to Prediction Engine <i class="fas fa-chevron-right ms-2"></i>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}CardioCare - Neural Performance Analytics{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="card glass-card border-0 shadow-lg p-5 text-center mb-5 animate-up">
+        <h5 class="text-primary fw-bold text-uppercase small tracking-widest mb-2">Network Validation</h5>
+        <h1 class="display-4 fw-bold mb-3">Neural <span class="text-gradient">Performance Genomics</span></h1>
+        <p class="lead text-secondary opacity-90 mx-auto" style="max-width: 700px;">
+            Quantifying the precision and recall capabilities of our Cardiovascular Predictive Ensemble.
+        </p>
+    </div>
+
+    <!-- Performance Cards -->
+    <div class="row mb-5 g-4 text-center">
+        <div class="col-md-3 animate-up">
+            <div class="card p-4 glass-card h-100 border-0 shadow-sm">
+                <div class="metric-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width: 80px; height: 80px; border-radius: 50%; border: 4px solid var(--primary-color);">
+                    <h4 class="fw-bold mb-0">73.2%</h4>
+                </div>
+                <h6 class="text-muted fw-bold small text-uppercase mb-1">Accuracy</h6>
+                <p class="small text-secondary mb-0">Overall model correctness</p>
+            </div>
+        </div>
+        <div class="col-md-3 animate-up">
+            <div class="card p-4 glass-card h-100 border-0 shadow-sm">
+                <div class="metric-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width: 80px; height: 80px; border-radius: 50%; border: 4px solid var(--accent-green);">
+                    <h4 class="fw-bold mb-0">75%</h4>
+                </div>
+                <h6 class="text-muted fw-bold small text-uppercase mb-1">Precision</h6>
+                <p class="small text-secondary mb-0">True positive hit-rate</p>
+            </div>
+        </div>
+        <div class="col-md-3 animate-up">
+            <div class="card p-4 glass-card h-100 border-0 shadow-sm">
+                <div class="metric-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width: 80px; height: 80px; border-radius: 50%; border: 4px solid #fd7e14;">
+                    <h4 class="fw-bold mb-0">70%</h4>
+                </div>
+                <h6 class="text-muted fw-bold small text-uppercase mb-1">Recall</h6>
+                <p class="small text-secondary mb-0">Population sensitivity</p>
+            </div>
+        </div>
+        <div class="col-md-3 animate-up">
+            <div class="card p-4 glass-card h-100 border-0 shadow-sm">
+                <div class="metric-circle mx-auto mb-3 d-flex align-items-center justify-content-center"
+                    style="width: 80px; height: 80px; border-radius: 50%; border: 4px solid var(--secondary-color);">
+                    <h4 class="fw-bold mb-0">2ms</h4>
+                </div>
+                <h6 class="text-muted fw-bold small text-uppercase mb-1">Latency</h6>
+                <p class="small text-secondary mb-0">Inference registry speed</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Visualizations Section -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-6 animate-up">
+            <div class="card h-100 border-0 shadow-sm glass-card overflow-hidden">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">Confusion Matrix Gallary</h5>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div
+                        class="visualization-placeholder rounded-4 overflow-hidden border border-border-color bg-light bg-opacity-5">
+                        <img src="{{ url_for('static', filename='img/confusion_matrix.png') }}"
+                            alt="Confusion Matrix Diagnostics" class="img-fluid"
+                            onerror="this.src='https://placehold.co/600x400/020617/cbd5e1?text=Calculating+Genetic+Matrix...'; this.parentNode.classList.add('animate-pulse');">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 animate-up">
+            <div class="card h-100 border-0 shadow-sm glass-card overflow-hidden">
+                <div class="card-header bg-transparent border-0 pt-4 px-4">
+                    <h5 class="fw-bold mb-0">ROC Curve Performance</h5>
+                </div>
+                <div class="card-body p-4 text-center">
+                    <div
+                        class="visualization-placeholder rounded-4 overflow-hidden border border-border-color bg-light bg-opacity-5">
+                        <img src="{{ url_for('static', filename='img/roc_curve.png') }}" alt="ROC Curve Evaluation"
+                            class="img-fluid"
+                            onerror="this.src='https://placehold.co/600x400/020617/cbd5e1?text=Plotting+Performance+Curve...'; this.parentNode.classList.add('animate-pulse');">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center animate-up mt-5">
+        <a href="{{ url_for('prediction') }}" class="btn btn-primary btn-lg px-5 shadow-lg">
+            Launch Diagnostic Engine <i class="fas fa-microchip ms-2"></i>
+        </a>
+    </div>
+</div>
+{% endblock %}
